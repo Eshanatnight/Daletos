@@ -1,13 +1,26 @@
 #include "SystemInfo.h"
+#include <windows.h>
+#include <cstdio>
+#include <cmath>
+
+#pragma comment(lib, "user32.lib")
 
 // default constructor
-sys::sys() :
-	m_cwd(this->get_current_dir())
-{}
+sys::sys()
+	:
+	m_cwd(get_current_dir())
+{
+	// For processor core data
+	SYSTEM_INFO m_siSysInfo;
+	GetSystemInfo(&m_siSysInfo);
+	m_cores = m_siSysInfo.dwNumberOfProcessors;
 
-
-
-
+	// For Ram Data
+	MEMORYSTATUSEX statex;
+	statex.dwLength = sizeof(statex);
+	GlobalMemoryStatusEx(&statex);
+	m_ram = ceil(statex.ullTotalPhys / (1024 * 1024 * 1024));
+}
 
 std::string get_current_dir()
 {

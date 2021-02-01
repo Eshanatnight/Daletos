@@ -1,18 +1,17 @@
-#include <windows.h>
 #include <string>
-#include <iostream>
+#include <cstdlib>
 
 class sys
 {
+public:
+	std::string m_cwd;
+	std::uint16_t m_cores;
+	std::uint16_t m_ram;
 
-    private:
-        std::string m_cwd;
-
-    public:
-        sys();
-
-    private:
-        const std::string& get_current_dir();
+public:
+	sys();
+	sys(const sys& other) = delete;
+	sys(sys&& other) = delete;
 };
 
-std::string get_current_dir();
+[[nodiscard]] std::string get_current_dir();
