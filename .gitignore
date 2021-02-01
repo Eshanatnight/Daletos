@@ -1,0 +1,21 @@
+#IDE and TEXT EDITORS
+.vs
+.vscode
+
+
+#Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# cmake
+\build
+
+# binaries
+/bin
+
+# temporary source files
+src/Source1.cpp
+src/Source2.cpp
+src/w.cpp
