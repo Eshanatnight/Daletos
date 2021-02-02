@@ -1,3 +1,6 @@
+# This Project IS Under Development
+
+
 # Daletos
 
 Searching CLI client for windows. Simple to use and fast.
