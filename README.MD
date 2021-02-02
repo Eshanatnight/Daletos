@@ -14,6 +14,7 @@ Searching CLI client for windows. Simple to use and fast.
 <a href="https://github.com/Eshanatnight/Daletos/blob/main/USEAGE.md"> Usage Documentaion </a>
 
 </br>
+
 ---
 
 ## Languages and Tools:
