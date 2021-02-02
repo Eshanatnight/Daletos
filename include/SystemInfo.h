@@ -1,7 +1,7 @@
 #include <string>
 #include <cstdlib>
 
-class sys
+struct sys
 {
 public:
 	std::string m_cwd;
@@ -12,6 +12,8 @@ public:
 	sys();
 	sys(const sys& other) = delete;
 	sys(sys&& other) = delete;
+
+private:
+	[[nodiscard]] std::string get_current_dir();
 };
 
-[[nodiscard]] std::string get_current_dir();

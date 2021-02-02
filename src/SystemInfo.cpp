@@ -7,8 +7,7 @@
 
 // default constructor
 sys::sys()
-	:
-	m_cwd(get_current_dir())
+	: m_cwd(get_current_dir())
 {
 	// For processor core data
 	SYSTEM_INFO m_siSysInfo;
@@ -22,7 +21,7 @@ sys::sys()
 	m_ram = ceil(statex.ullTotalPhys / (1024 * 1024 * 1024));
 }
 
-std::string get_current_dir()
+std::string sys::get_current_dir()
 {
 	TCHAR buffer[MAX_PATH] = { 0 };
 	GetModuleFileName(NULL, buffer, MAX_PATH);
@@ -32,3 +31,4 @@ std::string get_current_dir()
 	dir = dir.substr(0, pos);
 	return dir;
 }
+
