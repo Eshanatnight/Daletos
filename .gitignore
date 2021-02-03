@@ -14,8 +14,19 @@
 
 # binaries
 /bin
+*.exe
+*.out
 
 # temporary source files
 src/Source1.cpp
 src/Source2.cpp
 src/w.cpp
+
+# Test Folder and It's Objects
+/test
+test.cpp
+test.o
+test.obj
+test.exe
+/test/a.out
+/test/a.exe
