@@ -1,6 +1,7 @@
 #IDE and TEXT EDITORS
 .vs
 .vscode
+.idea
 
 
 #Visual Studio
@@ -8,6 +9,8 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+*.iml
+*.xml
 
 # cmake
 \build
@@ -24,9 +27,10 @@ src/w.cpp
 
 # Test Folder and It's Objects
 /test
-test.cpp
 test.o
 test.obj
 test.exe
 /test/a.out
 /test/a.exe
+
+#
