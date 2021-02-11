@@ -2,10 +2,12 @@
 #include "fmt/color.h"
 #include "fmt/core.h"
 #include <windows.h>
+#include <cstring>
 #include <iostream>
 
 
-Daletos::Daletos()
+Daletos::Daletos(int argc, char** argv)
+:	m_file(argv[3])
 {
 	m_files.resize(10);
 	for (int i = 0; i <= 70; i++)
@@ -48,9 +50,9 @@ Daletos::Daletos()
 // Todo :: incomplete
 void Daletos::start(int argc, char** argv)
 {
-	if(argc < 1)
+	if(argc < 2)
 	{
-		if (argv[1] == "-h" || argv[1] == "--help")
+		if (std::strcmp(argv[1], "-h") || std::strcmp(argv[1], "--help"))
 		{
 			fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::italic, "-h, --help -->\t\t");
 			fmt::print(fmt::emphasis::bold, "Helps Provides documentation and help tips\n");
@@ -61,19 +63,33 @@ void Daletos::start(int argc, char** argv)
 			fmt::print(fmt::emphasis::bold, "Fast Search algorithm\n");
 		}
 
-		if(argc > 2)  // Todo : Incomplete
+		else if(argc > 2)  // Todo : Incomplete
 		{
-			if(argv[2] == "search")
+			if(std::string(argv[2]).rfind(".\\", 0) == 0 )
+				m_systemObject.m_searchDir = std::string(argv[2]);
+			if())
+			if(std::strcmp(argv[3], "-s") || std::strcmp(argv[3], "search"))
 			{}
 		}
 	}
 }
 
-// ?? does this even work ??
+
+/* Adds Files via the FileSystem Header */
 void Daletos::search_fs(const std::string& fileName)
 {
 	for(const auto&entry : std::filesystem::directory_iterator(m_systemObject.m_cwd))
 	{
 		m_files.emplace_back(entry.path().string());
+	}
+
+	for(const auto&entry : m_files)
+	{
+		if(entry == m_file)
+			fmt::print(fg(fmt::color::lime_green) | fmt::emphasis::bold, "File Found in the Current Directory\n")
+		else
+		{
+
+		}
 	}
 }
