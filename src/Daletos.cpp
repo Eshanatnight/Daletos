@@ -147,7 +147,7 @@ void Daletos::collect_WIN()
 	vecSort();
 }
 
-
+/* Find algo for the file */
 void Daletos::find()
 {
 	std::vector<std::string>::iterator flag = std::find(m_files.begin(), m_files.end(), m_file);
@@ -159,3 +159,5 @@ void Daletos::find()
 		fmt::print(fg(fmt::color::red) | fmt::emphasis::bold, "FILE not found in the Working Directory\n");
 	}
 }
+
+// todo: File Handling
