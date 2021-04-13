@@ -31,4 +31,3 @@ std::string sys::get_current_dir()
 	dir = dir.substr(0, pos);
 	return dir;
 }
-
