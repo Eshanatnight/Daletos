@@ -1,8 +1,6 @@
 #pragma once
 #include "SystemInfo.h"
 #include <vector>
-#include <dirent.h>
-#include <windows.h>
 
 class Daletos
 {
@@ -16,12 +14,14 @@ public:
 	Daletos(Daletos& other) = delete;
 	Daletos(Daletos&& other) = delete;
 
+
+
 	void start(int argc, char** argv);
 
 private:
 	inline void vecSort();
+	void ScreenInit();
 	void collect_fs();
-	void collect_dirent();
 	void collect_WIN();
 
 	void find();
