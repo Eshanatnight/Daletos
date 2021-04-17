@@ -17,8 +17,10 @@
 \cmake-build-debug
 
 # binaries
-/bin
-*.exe
+/bin/intermideates
+/bin/Win32/Debug
+/bin/Win32/Release/Daletos.pdb
+/bin/Win32/Release/fmt.dll
 *.out
 
 # temporary source files
