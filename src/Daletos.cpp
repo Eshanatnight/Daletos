@@ -205,7 +205,7 @@ void Daletos::appHelp()
 /* Starts the app */
 void Daletos::start()
 {
-	//ScreenInit();
+	ScreenInit();
 	paremHandling();
 	FindAndList();
 }
