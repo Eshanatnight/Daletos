@@ -18,7 +18,7 @@ sys::sys()
 	MEMORYSTATUSEX statex;
 	statex.dwLength = sizeof(statex);
 	GlobalMemoryStatusEx(&statex);
-	m_ram = ceil(statex.ullTotalPhys / (1024 * 1024 * 1024));
+	m_ram = ceil(statex.ullTotalPhys / (1024 * 1024 * 1024)) + 1;
 }
 
 std::string sys::get_current_dir()
