@@ -179,7 +179,8 @@ void Daletos::FindAndList()
 	}
 }
 
-/* Definition Search */ // maybe deleted
+/*
+/* Definition Search * / // maybe deleted
 void Daletos::helpSearch()
 {
 	fmt::print(fg(fmt::color::cyan) | fmt::emphasis::bold, "search -->\n");
@@ -189,7 +190,7 @@ void Daletos::helpSearch()
 	fmt::print(fmt::emphasis::bold, "Fast Search algorithm\n");
 	fmt::print(fg(fmt::color::gainsboro), "pass the path as the second argument\n");
 }
-
+*/
 /* App help */
 void Daletos::appHelp()
 {
