@@ -6,23 +6,24 @@ class Daletos
 {
 private:
 	sys m_systemObject;
-	std::string m_file;
+	std::string m_fileName;
 	std::vector<std::string> m_files;
+	std::vector<std::string> m_argv;
 
 public:
-	Daletos(int argc, char** argv);
+	Daletos();
 	Daletos(Daletos& other) = delete;
 	Daletos(Daletos&& other) = delete;
 
-
-
-	void start(int argc, char** argv);
+	void start();
 
 private:
 	inline void vecSort();
 	void ScreenInit();
 	void collect_fs();
 	void collect_WIN();
-
-	void find();
+	void helpSearch();
+	void appHelp();
+	void FindAndList();
+	void paremHandling();
 };
