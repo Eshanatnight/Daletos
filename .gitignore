@@ -33,6 +33,7 @@ test.obj
 test.exe
 /test/a.out
 /test/a.exe
+Files.txt
 
 # un
 .editorconfig
