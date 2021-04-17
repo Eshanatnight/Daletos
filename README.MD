@@ -1,7 +1,4 @@
-# This Project Is Under Development
-    do not git clone
-
-## Daletos
+# Daletos
 
 Searching CLI client for windows. Simple to use and fast.
 
@@ -33,7 +30,7 @@ Searching CLI client for windows. Simple to use and fast.
 
 ---
 
-### USED Libreries
+### USED Libreries: (You can read the documentation by clicking)
 
 1. <a href= "https://github.com/fmtlib/fmt" > fmtplib </a>
 
