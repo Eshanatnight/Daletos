@@ -26,4 +26,5 @@ private:
 	void appHelp();
 	void FindAndList();
 	void paremHandling();
+	void Argumentinit();
 };

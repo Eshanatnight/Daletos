@@ -10,7 +10,6 @@
 
 // Other Stuff
 #include <windows.h>
-#include <cstring>
 #include <iostream>
 #include <utility>
 #include <filesystem>
@@ -21,22 +20,6 @@ Daletos::Daletos()
 {
 	m_argv.reserve(2);
 	m_files.reserve(10);
-
-	/*
-	//	Arg Analysis
-	// might use as app arguments
-	// or
-	// a different function
-	*/
-	fmt::print(fg(fmt::color::deep_pink), "Please input Parameters\n");
-	fmt::print(fg(fmt::color::deep_pink), "for help write \"--help\" or \"-h\"\n");
-	fmt::print("First Argument \"path\"\nSecond Argumrnt \"file name\"\nthird Argument (optional) keyword \"--fast-search\" or \"-fs\"\n");
-	char input[256];
-	for (int i = 0; i < 3; i++)
-	{
-		std::cin.getline(input, 255);
-		m_argv.emplace_back(input);
-	}
 }
 
 /* For Screen initialization */
@@ -47,7 +30,7 @@ void Daletos::ScreenInit()
 		fmt::print("*");
 	} fmt::print("\n");
 
-	fmt::print(fg(fmt::color::deep_pink) | bg(fmt::color::gainsboro) | fmt::emphasis::bold, "**\tDaletos [Starting.....]\n");
+	fmt::print(fg(fmt::color::deep_pink) | bg(fmt::color::gainsboro) | fmt::emphasis::bold, "Daletos \t [Starting.....]\n");
 
 	for (int i = 0; i <= 70; i++)
 	{
@@ -62,10 +45,11 @@ void Daletos::ScreenInit()
 		fmt::print("*");
 	} fmt::print("\n");
 
-	fmt::print(fg(fmt::color::deep_pink) | bg(fmt::color::gainsboro) | fmt::emphasis::bold, "**\tDaletos\t");
+	fmt::print(fg(fmt::color::deep_pink) | bg(fmt::color::gainsboro) | fmt::emphasis::bold, "Daletos\t");
 	fmt::print(fg(fmt::color::green) | fmt::emphasis::bold, "[Status: Online]\n");
 	fmt::print("Current Directory:\t {} \n", m_systemObject.m_cwd);
-	fmt::print(fmt::emphasis::bold, "� Copyright Eshanatnite");
+	fmt::print(fmt::emphasis::bold, "{}", (char)0xA9);
+	fmt::print(fmt::emphasis::bold, "Copyright Eshanatnite\n");
 
 	for (int i = 0; i <= 70; i++)
 	{
@@ -74,9 +58,27 @@ void Daletos::ScreenInit()
 
 	fmt::print(fmt::emphasis::bold, "Hardware information: \n");
 	fmt::print(fg(fmt::color::aquamarine) | fmt::emphasis::italic, "Number of Cores:\t{}\n", m_systemObject.m_cores);
-	fmt::print(fg(fmt::color::aquamarine) | fmt::emphasis::italic, "Ram:\t{}", m_systemObject.m_ram + 1);
+	fmt::print(fg(fmt::color::aquamarine) | fmt::emphasis::italic, "Ram:\t\t\t{}\n", m_systemObject.m_ram);
 
 	std::cout << std::flush;
+}
+
+void Daletos::Argumentinit()
+{
+	/*
+	//	Arg Analysis
+	// might use as app arguments
+	// or
+	// a different function */
+	fmt::print(fg(fmt::color::deep_pink), "\nPlease input Parameters\n");
+	fmt::print(fg(fmt::color::deep_pink), "for help write \"--help\" or \"-h\"\n");
+	fmt::print("First Argument \"path\"\nSecond Argumrnt \"file name\"\nthird Argument (optional) keyword \"--fast-search\" or \"-fs\"\n");
+	char input[256];
+	for (int i = 0; i < 3; i++)
+	{
+		std::cin.getline(input, 255);
+		m_argv.emplace_back(input);
+	}
 }
 
 /* For handleing parameters passed */
@@ -179,18 +181,6 @@ void Daletos::FindAndList()
 	}
 }
 
-/*
-/* Definition Search * / // maybe deleted
-void Daletos::helpSearch()
-{
-	fmt::print(fg(fmt::color::cyan) | fmt::emphasis::bold, "search -->\n");
-	fmt::print(fg(fmt::color::alice_blue) | fmt::emphasis::bold, "search\t");
-	fmt::print(fmt::emphasis::bold, "Normal Search algorithm (set by default)\n");
-	fmt::print(fg(fmt::color::alice_blue) | fmt::emphasis::bold, "--fast-search, -fs\t");
-	fmt::print(fmt::emphasis::bold, "Fast Search algorithm\n");
-	fmt::print(fg(fmt::color::gainsboro), "pass the path as the second argument\n");
-}
-*/
 /* App help */
 void Daletos::appHelp()
 {
@@ -207,6 +197,7 @@ void Daletos::appHelp()
 void Daletos::start()
 {
 	ScreenInit();
+	Argumentinit();
 	paremHandling();
 	FindAndList();
 }
