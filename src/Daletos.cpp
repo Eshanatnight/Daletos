@@ -46,9 +46,9 @@ void Daletos::ScreenInit()
 	} fmt::print("\n");
 
 	fmt::print(fg(fmt::color::deep_pink) | bg(fmt::color::gainsboro) | fmt::emphasis::bold, "Daletos\t");
-	fmt::print(fg(fmt::color::green) | fmt::emphasis::bold, "[Status: Online]\n");
+	fmt::print(fg(fmt::color::green) | fmt::emphasis::bold, "\t\t[Status: Online]\n");
 	fmt::print("Current Directory:\t {} \n", m_systemObject.m_cwd);
-	fmt::print(fmt::emphasis::bold, "{}", (char)0xA9);
+	fmt::print(fmt::emphasis::bold, "      \t{}    ", (char)0xA9);
 	fmt::print(fmt::emphasis::bold, "Copyright Eshanatnite\n");
 
 	for (int i = 0; i <= 70; i++)
@@ -89,6 +89,7 @@ void Daletos::paremHandling()
 	{
 		fmt::print(fg(fmt::color::red) | fmt::emphasis::bold, "Insuffecient or Incorrect Arguments !\n Try Again");
 		appHelp();
+		return;
 	}
 
 	else
@@ -115,6 +116,8 @@ void Daletos::paremHandling()
 		else
 			fmt::print(fg(fmt::color::crimson) | fmt::emphasis::bold, "Incorrect Parrameters Passed\nExeption Thrown\n");
 	}
+
+	FindAndList();
 }
 /* Sorts the Files Vector */
 inline void Daletos::vecSort()
@@ -184,13 +187,13 @@ void Daletos::FindAndList()
 /* App help */
 void Daletos::appHelp()
 {
-	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::italic, "-h, --help -->\t\t");
+	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::italic, "\n-h, --help -->\t\t  ");
 	fmt::print(fmt::emphasis::bold, "Helps Provides documentation and help tips\n");
-	fmt::print(fg(fmt::color::cyan) | fmt::emphasis::bold, "search -->\n");
-	fmt::print(fg(fmt::color::alice_blue) | fmt::emphasis::bold, "search\t");
+	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::bold, "search -->\t\t  ");
+	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::bold, "search\t");
 	fmt::print(fmt::emphasis::bold, "Normal Search algorithm (set by default)\n");
-	fmt::print(fg(fmt::color::alice_blue) | fmt::emphasis::bold, "--fast-search\t");
-	fmt::print(fmt::emphasis::bold, "Fast Search algorithm\n");
+	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::bold, "--fast-search or -fs -->  ");
+	fmt::print(fg(fmt::color::gainsboro) | fmt::emphasis::bold, "Fast Search algorithm\n");
 }
 
 /* Starts the app */
@@ -199,5 +202,4 @@ void Daletos::start()
 	ScreenInit();
 	Argumentinit();
 	paremHandling();
-	FindAndList();
 }
