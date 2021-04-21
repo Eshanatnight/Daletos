@@ -1,6 +1,6 @@
 #include "Daletos.h"
 
-int main(int argc, char** argv)
+int main()
 {
 	Daletos cild;
 	cild.start();
